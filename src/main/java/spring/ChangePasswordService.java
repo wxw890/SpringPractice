@@ -1,7 +1,7 @@
 package spring;
 
 import java.util.Date;
-
+//비번
 public class ChangePasswordService {
 	private MemberDao memberDao;
 	public ChangePasswordService(){}
