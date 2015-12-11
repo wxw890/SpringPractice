@@ -6,7 +6,7 @@
 <bean id="memberDao" class="spring.MemberDao"></bean><!-- 인스턴스생성 -->
 <bean id="memberPrinter" class="spring.MemberPrinter"></bean><!-- 인스턴스생성 -->
 <bean id="regSvc" class="spring.MemberRegisterService"><!--MemberRegisterService 인스턴스생성-->
-	<constructor-arg ref="memberDao"></constructor-arg>
+	<constructor-arg ref="memberDao"></constructor-arg><!-- 여기서 생성자로 주입을 해줘야하기때문에 주입을 위해서 필요한 코드이다. 즉, 생성자는 constructor-arg -->
 </bean>
 
 <bean id="pwdSvc" class="spring.ChangePasswordService">
@@ -15,5 +15,9 @@
 <bean id="listPrinter" class="spring.MemberListPrinterService">
 	<constructor-arg ref="memberDao"></constructor-arg>
 	<constructor-arg ref="memberPrinter"></constructor-arg>
+</bean>
+<bean id="infoPrinter" class="spring.MemberInfoPrinter"><!--MemberInfoPrinter의 인스턴스 생성  -->
+	<property name="memberDao" ref="memberDao"></property><!-- 여기서는 생성자가 아닌 메서드에 주입하기 위해서 property를 상용해야한다. 즉, 메서드는 property -->
+	<property name="printer" ref="memberPrinter"></property>
 </bean>
 </beans>
