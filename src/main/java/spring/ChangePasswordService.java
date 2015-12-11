@@ -1,11 +1,11 @@
 package spring;
-
+//서비스 단
 import java.util.Date;
 //비번
 public class ChangePasswordService {
 	private MemberDao memberDao;
 	public ChangePasswordService(){}
-	public ChangePasswordService(MemberDao memberDao){
+	public ChangePasswordService(MemberDao memberDao){ //주입받고있다 MemberDao
 		this.memberDao = memberDao;
 	}
 	

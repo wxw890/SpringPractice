@@ -31,7 +31,7 @@ public class RegisterRequest {
 		this.email = email;
 	}
 	
-	public boolean idPasswordEqulToConfirmPassword(){
+	public boolean isPasswordEqualToConfirmPassword(){
 		return password.equals(confirmPassword);
 	}
 	

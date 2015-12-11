@@ -7,11 +7,12 @@ public class Assembler {
 	
 	public Assembler(){
 		memberDao = new MemberDao();
-		regSvc = new MemberRegisterService(memberDao);
-		pwdSvc = new ChangePasswordService(memberDao);
+		regSvc = new MemberRegisterService(memberDao); //주입해주고 있다. --->spring에서는 xml에서 이작업을 구현해야한다.
+		pwdSvc = new ChangePasswordService(memberDao);	//주입해주고 있다.
 	}
 	public MemberDao getMemberDao(){
 		return memberDao;
 	}
 	public MemberRegisterService getRegSvc(){ return regSvc;}
+	public ChangePasswordService getPwSvc(){ return pwdSvc;}
 }
