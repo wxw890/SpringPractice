@@ -66,7 +66,7 @@ public class MainForSpring {
 		System.out.println();
 	}
 	
-	private static void processNewCommand(String[] args){
+	private static void processNewCommand(String[] args){//회원가입을 하는 함수 부분
 		if(args.length != 5){
 			printHelp();
 			return;
@@ -93,7 +93,7 @@ public class MainForSpring {
 		}
 	}
 	
-	private static void processChangeCommand(String[] args){
+	private static void processChangeCommand(String[] args){//비밀번호를 변경하는 함수 부분
 		if(args.length != 4){
 			printHelp();
 			return;
@@ -113,7 +113,7 @@ public class MainForSpring {
 		}
 	}
 	
-	private static void processListCommand(){
+	private static void processListCommand(){ //전체 리스트를 출력하는 함수 부분
 		MemberListPrinterService listPrinter = ctx.getBean("listPrinter", MemberListPrinterService.class);//listPrinter란 xml의 지정한 id를 뜻한다.
 		listPrinter.selectAll();
 	}

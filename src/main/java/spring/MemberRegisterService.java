@@ -1,11 +1,15 @@
 package spring;
 //서비스 단 
 import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 //가입
 public class MemberRegisterService {
 	private MemberDao memberDao;
 	public MemberRegisterService(){}
-	public MemberRegisterService(MemberDao memberDao){//주입받고있다 MemberDao
+	@Autowired
+	public MemberRegisterService(@Qualifier("memberDao")MemberDao memberDao){//주입받고있다 MemberDao
 		this.memberDao = memberDao;
 	}
 	

@@ -4,6 +4,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberDao {
 	private static long nextId = 0;
 	private Map<String, Member> map = new HashMap<String, Member>();//db대신에 사용하는것 HashMap사용...
