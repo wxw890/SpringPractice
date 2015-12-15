@@ -10,7 +10,7 @@ import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import spring.AlreadyExistingMemberException;
-import spring.Assembler;
+
 import spring.ChangePasswordService;
 import spring.IdPasswordNotMachingException;
 import spring.MemberInfoPrinter;

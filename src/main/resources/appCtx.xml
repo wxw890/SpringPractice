@@ -3,9 +3,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<bean id="memberDao" class="spring.MemberDao"></bean><!-- 인스턴스생성 -->
+<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost/spring4fs?characterEncoding=utf-8" />
+		<property name="user" value="root" />
+		<property name="password" value="1111" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"><!-- JdbcTemplate은 전형적인 스프링 JDBC 접근방법이고 가장 인기가 좋다.  -->
+		<property name="dataSource" ref="dataSource" /><!-- dataSource메소드에 dataSource 의존성 주입을 설정한다. -->
+	</bean>
+
+	<bean id="memberDao" class="spring.MemberDao">
+		<constructor-arg ref="jdbcTemplate" /><!-- MemberDao 생성자에 jdbcTemplate을 주입한다. -->
+	</bean>
+
+
 <bean id="memberPrinter" class="spring.MemberPrinter"></bean><!-- 인스턴스생성 -->
-<bean id="regSvc" class="spring.MemberRegisterService"><!--MemberRegisterService 인스턴스생성-->
+<bean id="regSvc" class="spring.MemberRegisterService"><!--MemberRegisterService 인스턴스생성 즉, bean은 클래스라 생각하자-->
 	<constructor-arg ref="memberDao"></constructor-arg><!-- 여기서 생성자로 주입을 해줘야하기때문에 주입을 위해서 필요한 코드이다. 즉, 생성자는 constructor-arg -->
 </bean>
 
