@@ -42,7 +42,8 @@ public class Member {
 	}
 	
 	public void changePassword(String oldPassword, String newPassword){
-		if(!password.equals(oldPassword))
+		
+		if(!password.equals(oldPassword))//패스워드 일치 확인
 		{
 			throw new IdPasswordNotMachingException();
 		}

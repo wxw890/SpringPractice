@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+ <!-- 로그 환경설정 -->
+ 
+    <!-- Appenders -->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender"><!--appender란 화면에 뿌려주겠다는 태그  -->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p [%c] %m%n" /><!-- 이 param태그를 뿌리겠다. -->
+        </layout>   
+    </appender>
+     
+    
+ 
+    <!-- Root Logger -->
+    <root>
+        <priority value="INFO"/>
+        <appender-ref ref="console" />
+    </root>
+    
+    <logger name="org.springframework.jdbc">
+    	<level value="DEBUG"></level>
+    </logger>
+     
+</log4j:configuration>

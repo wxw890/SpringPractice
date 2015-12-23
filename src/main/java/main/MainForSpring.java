@@ -102,7 +102,7 @@ public class MainForSpring {
 		ChangePasswordService changePwdSvc = ctx.getBean("pwdSvc",ChangePasswordService.class);//assemble대신
 		
 		try{
-			changePwdSvc.changePassword(args[1], args[2], args[3]);
+			changePwdSvc.changePassword(args[1], args[2], args[3]);//이메일, 현재비밀번호, 
 			System.out.println("암호를 변경했습니다.\n");
 		}
 		catch(MemberNotFoundException err){
